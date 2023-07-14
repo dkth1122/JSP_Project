@@ -10,7 +10,7 @@
 <body>
 	<%@ include file="jdbc_set.jsp" %>
 <%
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("UTF-8");
 		String uId = request.getParameter("uId");
 		Statement stmt = null;
 
@@ -27,7 +27,7 @@
 					out.println("정지된 회원만 삭제할 수 있습니다.");
 				} 
 			} else {
-				out.println("해당 학생이 존재하지 않습니다.");
+				out.println("해당 회원이 존재하지 않습니다.");
 			}
 		} catch (SQLException ex) {
 			out.println("SQLException: " + ex.getMessage());
@@ -37,7 +37,12 @@
 </body>
 </html>
 <script>
-	function back(){
-		location.href="user.jsp";
+	alert("삭제 완료");
+	
+	back();
+	
+	function back() {
+	    window.opener.getReturn();
+	    window.close();
 	}
 </script>

@@ -1,3 +1,4 @@
+<%@page import="java.security.interfaces.RSAKey"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>	
@@ -23,15 +24,19 @@
 		String phone = request.getParameter("phone");
 		String age = request.getParameter("age");
 		String addr = request.getParameter("addr");
+		String birth = request.getParameter("birth");
+		String email = request.getParameter("email");
+		
 		
 		ResultSet rs = null; 
 		Statement stmt = null; 
+		
 		try{			
 			String update = "";
-			if(pwd.equals("") || pwd == null){
-				 update = "UPDATE YNY_TB_USER SET  U_NAME = '" + uname + "', PHONE = '" + phone + "', AGE = '" + age + "'" + ", ADDR = '" + addr + "' WHERE U_ID = '"+ uId +"'";				 
+			if(pwd == null || pwd.equals("")){
+				 update = "UPDATE YNY_TB_USER SET  U_NAME = '" + uname + "', PHONE = '" + phone + "', BIRTH = '" + birth + "' , EMAIL ='" + email + "' , ADDR = '" + addr + "' , UP_D = NOW()  WHERE U_ID = '"+ uId +"'";				 
 			}else{
-				 update = "UPDATE YNY_TB_USER SET  PWD = '" + pwd + "', U_NAME = '" + uname + "', PHONE = '" + phone + "', AGE = '" + age + "'" + ", ADDR = '" + addr + "' WHERE U_ID = '"+ uId +"'";
+				 update = "UPDATE YNY_TB_USER SET  PWD = '" + pwd + "',  U_NAME = '" + uname + "', PHONE = '" + phone + "', BIRTH = '" + birth + "' , EMAIL ='" + email + "' , ADDR = '" + addr + "' , UPDATE = NOW()  WHERE U_ID = '"+ uId +"'";				 
 			}
 				stmt = conn.createStatement();
 				stmt.executeUpdate(update);
@@ -48,7 +53,7 @@
 	back();
 
 	function back() {
-		window.opener.getReturn();
-		window.close(); 
-	}
+        window.opener.getReturn();
+        window.close();
+    }
 </script>

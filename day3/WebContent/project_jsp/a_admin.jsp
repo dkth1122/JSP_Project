@@ -36,14 +36,15 @@
 </head>
 <body>
 <%@ include file="jdbc_set.jsp"%>
-<form name="list" action="user_update">
+<form name="list" action="a_user_update.jsp">
 	<table>
 		<tr>
 			<th>선택</th>
 			<th>아이디</th>
 			<th>이름</th>
 			<th>핸드폰번호</th>
-			<th>나이</th>
+			<th>생년월일</th>
+			<th>이메일</th>
 			<th>주소</th>
 			<th>정지여부</th>
 			<th>기능</th>
@@ -62,8 +63,10 @@
 					String uName = rs.getString("U_NAME");
 					String phone 
 						= rs.getString("PHONE") != null ? rs.getString("PHONE") : "-";
-					String age 
-						= rs.getString("AGE")  != null ? rs.getString("AGE") : "-";
+					String birth 
+						= rs.getString("BIRTH")  != null ? rs.getString("BIRTH") : "-";
+					String email
+					= rs.getString("EMAIL")  != null ? rs.getString("EMAIL") : "-";
 					String addr
 						= rs.getString("ADDR")  != null ? rs.getString("ADDR") : "-";
 					String banYn 
@@ -83,7 +86,8 @@
 				<td><%=uId%></td>
 				<td><%=uName%></td>
 				<td><%=phone%></td>
-				<td><%=age%></td>
+				<td><%=birth%></td>
+				<td><%=email%></td>
 				<td><%=addr%></td>
 				<td style="color:red"><%=banYn%></td>
 				<td><input style="margin-bottom: 7px;"  type="button" onclick="bchange('<%=rs.getString("BANYN")%>', '<%=uId %>')" value=<%= ban %>></td>
@@ -110,7 +114,8 @@
 			if(!confirm("정말 삭제하시겠습니까?")){
 				return;
 			}
-			location.href = "a_user_remove.jsp?uId=" + form.user.value;
+			   var form = document.list;
+			   window.open("a_user_remove.jsp?uId=" + form.user.value,"rpop","width=500, height=300")
 		}//userRemove
 		
 		function bchange(kind,uId){
