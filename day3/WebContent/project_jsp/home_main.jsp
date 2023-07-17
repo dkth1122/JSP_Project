@@ -119,6 +119,8 @@
     .t-img{
 	  width: 20px;
 	  height: 20px;
+	  position: absolute;
+	  bottom: 0%;
     }
 
     .top{
@@ -128,7 +130,8 @@
     }
 
     .t-in{
-    	width:400px;
+
+    	width:100px;
         display: inline;
         padding: 10px 10px;
     }
@@ -151,7 +154,6 @@
     
     .category>li ul {
     	padding:30px;
-    	background-color: rgba(255, 255, 255, 0.8);
         display: none;
         position: absolute; 
         top: 100%; 
@@ -175,7 +177,7 @@
     <div class="top">
         <div class="t-in"><a href="u_login.jsp">로그인</a></div>
         <div class="t-in"><a href="signup.jsp">회원가입</a></div>     
-        <div class="t-in"><a href="u_login.jsp"> 마이페이지</a> <img class="t-img" src="./img/dog-pawprint-on-a-heart.png"></div>
+        <div class="t-in"><a href="u_login.jsp"> 마이페이지</a> <img class="t-img" src="./img/free-icon-cat-1956176.png"></div>
     </div>
     
  <div class="h-h"><a href="home_main.jsp">감자의 집</a></div> 

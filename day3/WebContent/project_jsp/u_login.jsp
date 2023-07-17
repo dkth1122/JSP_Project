@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <meta charset="UTF-8">
 <title>Login page</title>
 <style>
@@ -87,6 +88,7 @@
 		font-family: a타이틀고딕2;
 	}
 </style>
+<link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body>
 <%@ include file="jdbc_set.jsp" %>
@@ -104,29 +106,50 @@
 
 	<form name="login" action="u_login2.jsp">
 		<div id="container">
-				<h1>💕로그인 해주세요~~</h1>
-				<form name="list" action="insert.jsp">
-					<fieldset>
-						<legend>로그인 정보</legend>
-						<ul>
-							<li><label class="li_label" for="uid">아이디</label> 
-							<input class="txt_input" type="text" name="uid" required></li>
-							
-							<li><label class="li_label" for="pwd1">비밀번호</label> 
-							<input class="txt_input" type="password" name="pwd1" required></li>
-						</ul>
-						<div>
+			<h1>💕로그인 해주세요~~</h1>
+			<form name="list" action="insert.jsp">
+				<fieldset>
+					<legend>로그인 정보</legend>
+					<ul>
+						<li>
+							<label class="li_label" for="uid">아이디</label>
+							<input class="txt_input" type="text" name="uid" required>
+						</li>
+						<li>
+							<label class="li_label" for="pwd1">비밀번호</label>
+							<input class="txt_input" type="password" name="pwd1" id="pwd1" required>
+							<i class="fa fa-eye" id="eye-icon" style="color: #ccc" onclick="togglePasswordVisibility()"></i>
+						</li>
+					</ul>
+					<div>
 						<label><input type="radio" value="U" name="stat" checked>일반회원</label>
 						<label><input type="radio" value="A" name="stat">관리자</label>
-						</div>
-						<button class="btn_input"  id="left_btn"  type="submit" >로그인
-						<button class="btn_input" onclick="isback()">홈페이지로</button>
-					</fieldset>
-			</div>
+					</div>
+					<button class="btn_input" id="left_btn" type="submit">로그인
+					<button class="btn_input" onclick="isback()">홈페이지로</button>
+				</fieldset>
+			</form>
+		</div>
 </body>
 </html>
+
 <script>
-function isback(){		
-	location.href = "home_main.jsp";		
+function isback() {
+	location.href = "home_main.jsp";
+}
+
+function togglePasswordVisibility() {
+	var pwdInput = document.getElementById("pwd1");
+	var eyeIcon = document.getElementById("eye-icon");
+
+	if (pwdInput.type === "password") {
+		pwdInput.type = "text";
+		eyeIcon.classList.remove("fa-eye");
+		eyeIcon.classList.add("fa-eye-slash");
+	} else {
+		pwdInput.type = "password";
+		eyeIcon.classList.remove("fa-eye-slash");
+		eyeIcon.classList.add("fa-eye");
+	}
 }
 </script>

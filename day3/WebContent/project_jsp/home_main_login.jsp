@@ -119,16 +119,19 @@
     .t-img{
 	  width: 20px;
 	  height: 20px;
+	  position: absolute;
+	  bottom: 0%;
     }
 
     .top{
+    	width:500px;
         position: relative;
-        top:15%;
-        left: 85%;
+        top:10%;
+        left: 80%;
     }
 
     .t-in{
-    	width:400px;
+    	width:100px;
         display: inline;
     }
     
@@ -164,9 +167,13 @@
 </head>
 <body>
 <%
-	String b = (String)session.getAttribute("uname");
+	String name = (String)session.getAttribute("uname");
+	session.setAttribute("uname", name);
 	
-	if (b == null || b.equals("")) {
+	String id = (String)session.getAttribute("id");
+	session.setAttribute("id", id);
+	
+	if (name == null || name.equals("")) {
 	    response.sendRedirect("home_main.jsp");
 	}
 
@@ -174,11 +181,12 @@
 
 <div class="header">
     <div class="top">
-        <div class="t-in"><%= b %>님 환영합니다~❤</div>     
-        <div class="t-in"><a href="home_main.jsp">로그아웃<img class="t-img" src="./img/dog-pawprint-on-a-heart.png"></a></div>
+        <div class="t-in"><%= name %>님 환영합니다~❤</div>     
+         <div class="t-in"><a href="u_mypage.jsp"> 마이페이지<img class="t-img" src="./img/free-icon-cat-1956176.png"></a></div>
+        <div class="t-in"><a href="home_main.jsp">&nbsp;&nbsp;&nbsp;&nbsp;로그아웃<img class="t-img" src="./img/free-icon-sign-out-7046204.png"></a></div>
     </div>
     
- <div class="h-h"><a href="home_main.jsp">감자의 집</a></div> 
+ <div class="h-h"><a href="home_main_login.jsp">감자의 집</a></div> 
  <div class="h-in">
 	 <ul class="category">
 	 	<li class="h-c">올해의 강아지

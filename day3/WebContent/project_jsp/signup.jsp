@@ -334,7 +334,7 @@ function signup() {
     return;
   }
   
-  if (uname == undefined || uname == "") {
+  if (uname == undefined || uname == "") {q
     showErrorMsg('uname-error', '이름을 입력해주세요');
     return;
   }

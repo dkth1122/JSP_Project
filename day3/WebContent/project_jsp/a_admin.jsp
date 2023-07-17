@@ -36,6 +36,13 @@
 </head>
 <body>
 <%@ include file="jdbc_set.jsp"%>
+
+<form name="searchForm" method="get" action="">
+  <label for="searchId">검색할 아이디:</label>
+  <input type="text" id="searchId" name="searchId">
+  <input type="button" onclick="searchUser()" value="검색">
+</form>
+
 <form name="list" action="a_user_update.jsp">
 	<table>
 		<tr>
@@ -55,7 +62,7 @@
 			ResultSet rs = null;
 			Statement stmt = null;
 			try {
-				String sql = "select * from YNY_TB_USER WHERE STATUS = 'U' ORDER BY U_ID ASC";
+				String sql = "SELECT * FROM YNY_TB_USER U lEFT JOIN YNY_TB_CHECK C ON U.U_ID = C.U_ID WHERE STATUS = 'U' ORDER BY U.U_ID ASC";
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(sql);
 				while (rs.next()) {
@@ -77,7 +84,6 @@
 						= rs.getInt("CNT");
 					String cnt2
 						= rs.getInt("CNT") >= 5 ? "button" : "hidden";
-		
 		%>
 			<tr>
 				<td>
@@ -105,10 +111,14 @@
 	</table>
 	<input type="button" onclick="userUpdate()" value="수정"/>
 	<input type="button" onclick="userRemove()" value="삭제"/>
+	<input type="button" onclick="isback()" value="돌아가기"/>
 </form>
 </body>
 </html>
 <script>
+	function isback() {
+		location.href = "a_home.jsp"
+	}
 	var form = document.list;
 		function userRemove(){
 			if(!confirm("정말 삭제하시겠습니까?")){
@@ -125,7 +135,7 @@
 						kind = "N"
 					}
 					window.open("a_user_ban.jsp?uId="+uId+"&kind="+kind,"bpop","width=500, height=300");	
-				}//stopop
+				}
 				
 		function getReturn(){
 					location.reload(); //새로고침
@@ -133,6 +143,10 @@
 				
 		function cnt(uId){
 			window.open("a_cnt_reset.jsp?uId="+uId,"cpop","width=500, height=300");	
+		}	
+		
+		function qna(uId){
+			window.open("a_QnA_Search.jsp?uId="+uId,"qpop","width=1000, height=500");	
 		}		
 		
 		function userUpdate(){
@@ -141,6 +155,19 @@
 			   }
 			   var form = document.list;
 			   window.open("a_user_update.jsp?uId=" + form.user.value,"upop","width=500, height=300");
+			}
+		
+		function searchUser() {
+			  var form = document.searchForm;
+			  var searchId = form.searchId.value.trim();
+
+			  if (searchId === "") {
+			    alert("검색할 아이디를 입력해주세요.");
+			    return;
+			  }
+
+			  // 검색한 아이디로 페이지 이동
+			  window.location.href = "a_user_search.jsp?uId=" + searchId;
 			}
 		
 </script>
