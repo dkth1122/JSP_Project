@@ -19,7 +19,7 @@
 			String select = "SELECT * FROM YNY_TB_USER WHERE U_ID = '" + uId + "'";
 			ResultSet rs = stmt.executeQuery(select);
 			if(rs.next()){
-				if("Y".equals(rs.getString("BANYN"))){
+				if("Y".equals(rs.getString("BANYN")) || "S".equals(rs.getString("BANYN"))){
 					String delete = "DELETE FROM YNY_TB_USER WHERE U_ID = '" + uId + "'";
 					stmt.executeUpdate(delete);
 					out.println("삭제 했습니다.");
@@ -37,10 +37,6 @@
 </body>
 </html>
 <script>
-	alert("삭제 완료");
-	
-	back();
-	
 	function back() {
 	    window.opener.getReturn();
 	    window.close();

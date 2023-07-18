@@ -96,10 +96,10 @@
 /* 	session.removeAttribute("id"); */
 /* 	session.invalidate(); */
 
-	if(request.isRequestedSessionIdValid()){
+/* 	if(request.isRequestedSessionIdValid()){
 		session.invalidate();
 	}
-
+ */
 /* 	String uId = (String) session.getAttribute("id");
 	out.println(uId); */
 %>
@@ -107,13 +107,12 @@
 	<form name="login" action="u_login2.jsp">
 		<div id="container">
 			<h1>💕로그인 해주세요~~</h1>
-			<form name="list" action="insert.jsp">
 				<fieldset>
 					<legend>로그인 정보</legend>
 					<ul>
 						<li>
 							<label class="li_label" for="uid">아이디</label>
-							<input class="txt_input" type="text" name="uid" required>
+							<input class="txt_input" type="text" name="uId" required>
 						</li>
 						<li>
 							<label class="li_label" for="pwd1">비밀번호</label>

@@ -120,9 +120,10 @@
         <legend>사용자 정보</legend>
         <ul>
           <li>
-            <label class="li_label" for="uid">아이디</label>
-            <input class="txt_input" type="text" name="uid" required>
-            <div id="uid-error" class="error-msg"></div>
+            <label class="li_label" for="uId">아이디</label>
+            <input class="txt_input" type="text" name="uId" required>
+            <input type="button" onclick="idCheck()" value="중복체크">
+            <div id="uId-error" class="error-msg"></div>
           </li>
           
           <li>
@@ -166,7 +167,7 @@
             <label>@</label>
             <input class="email_input" id="domain-txt" type="text" name="e-domain2"/>
             <select class="email_input" id="domain-list" name="e-domain">
-              <option value="type">직접 입력</option>
+              <option value="">직접 입력</option>
               <option value="naver.com">naver.com</option>
               <option value="google.com">google.com</option>
               <option value="hanmail.net">hanmail.net</option>
@@ -191,7 +192,8 @@
             <input class="phone_input" type="text" name="phone2" />
             <label>-</label>
             <input class="phone_input" type="text" name="phone3" /> 
-            <div id="phone-error" class="error-msg"></div>
+            <div id="phone2-error" class="error-msg"></div>
+            <div id="phone3-error" class="error-msg"></div>
           </li>
           
           <li>
@@ -218,11 +220,9 @@
 </body>
 </html>
 <script>
-function submitForm() {
-  if (validateForm()) {
-    document.forms['list'].submit();
-  }
-}
+var check1 = false; // 아이디 중복체크 확인 여부 
+
+var check2 = false; // 중복 여부 
 
 function isback() {   
   location.href = "home_main.jsp";   
@@ -306,46 +306,92 @@ domainListEl.addEventListener('change', (event) => {
 //가입 버튼을 눌렀을 때 실행되는 함수
 function signup() {
   let form = document.list;
-  let id = form.uid.value;
+  let id = form.uId.value;
   let pw = form.pwd.value;
   let pw2 = form.pwd2.value;
   let uname = form.uname.value;
+  let phone2 = form.phone2.value; // 전화번호 두 번째 부분
+  let phone3 = form.phone3.value; // 전화번호 세 번째 부분
 
-  let str1 = /^[a-zA-Z0-9]*$/;
-
-  if (!str1.test(id)) {
-    showErrorMsg('uid-error', '아이디는 영어와 숫자만 입력 가능, 한글 금지');
-    form.uid.select();
-    return;
-  }
-
-  if (id == undefined || id == "") {
-    showErrorMsg('uid-error', '아이디를 입력해주세요');
-    return;
-  }
-
-  if (pw != pw2) {
-    showErrorMsg('pwd2-error', '비밀번호가 일치하지 않습니다.');
-    return;
-  }
+  let str1 = /^[A-Za-z0-9+]{6,12}$/;
   
-  if (pw == undefined || pw == "") {
-    showErrorMsg('pwd-error', '비밀번호를 입력해주세요');
-    return;
-  }
-  
-  if (uname == undefined || uname == "") {q
-    showErrorMsg('uname-error', '이름을 입력해주세요');
-    return;
-  }
+  if(!check1){ 
+	  alert("아이디 중복체크를 해주세요."); 
+	  return; 
+	  } 
+
+	  if(!check2){ 
+	  alert("중복된 아이디가 있습니다."); 
+	  return; 
+	  } 
+
+	  if (!str1.test(id)) {
+		    showErrorMsg('uId-error', '아이디는 영어와 숫자만 입력 가능, 6~12자');
+		    document.list.uId.focus();
+		    return;
+		  }
+
+		  if (id === "") {
+		    showErrorMsg('uId-error', '아이디를 입력해주세요');
+		    return;
+		  }
+
+		  if (pw !== pw2) {
+		    showErrorMsg('pwd2-error', '비밀번호가 일치하지 않습니다.');
+		    return;
+		  }
+
+		  if (pw === "") {
+		    showErrorMsg('pwd-error', '비밀번호를 입력해주세요');
+		    return;
+		  }
+
+		  if (pw.length > 20) {
+		    showErrorMsg('pwd-error', '비밀번호는 20자 이하여야 합니다.');
+		    return;
+		  }
+
+		  if (uname === "") {
+		    showErrorMsg('uname-error', '이름을 입력해주세요');
+		    return;
+		  }
+
+		  if (uname.length > 10) {
+		    showErrorMsg('uname-error', '이름은 10자 이하여야 합니다.');
+		    return;
+		  }
+
+		  if (phone2.length > 5) {
+		    showErrorMsg('phone2-error', '전화번호는 5자 이하여야 합니다.');
+		    return;
+		  }
+		  
+		  if (phone3.length > 5) {
+		    showErrorMsg('phone3-error', '전화번호는 5자 이하여야 합니다.');
+		    return;
+		  }
 
   form.submit();
 }
 
-// 홈페이지로 버튼을 눌렀을 때 실행되는 함수
-function isback(){		
-  location.href = "home_main.jsp";		
-}
+function idCheck(){ 
+	check1 = true; 
+	var form = document.list; 
+		if(form.uId.value =="" || form.uId.value.length < 0){ 
+		alert("아이디를 먼저 입력해주세요") 
+		form.uId.focus(); 
+		}else{ 
+		window.open("u_idcheck.jsp?uId="+form.uId.value, "check","width=500, height=300"); 
+		} 
+	} 
+
+function getReturn(val){ 
+	if(val == "Y"){ 
+	check2 = true; 
+	} else { 
+	check2 = false; 
+	} 
+} 
 
 // 에러 메시지 출력 함수
 function showErrorMsg(elementId, errorMsg) {
@@ -362,8 +408,8 @@ function resetErrorMsg(elementId) {
 }
 
 // 아이디 입력 필드의 값이 변경될 때마다 에러 메시지를 초기화합니다
-function resetUidErrorMsg() {
-  resetErrorMsg('uid-error');
+function resetuIdErrorMsg() {
+  resetErrorMsg('uId-error');
 }
 
 // 비밀번호 확인 입력 필드의 값이 변경될 때마다 에러 메시지를 초기화합니다
@@ -381,10 +427,19 @@ function resetUnameErrorMsg() {
   resetErrorMsg('uname-error');
 }
 
+//전화번호2 입력 필드의 값이 변경될 때마다 에러 메시지를 초기화합니다
+function resetPhone2ErrorMsg() {
+  resetErrorMsg('phone2-error');
+}
+
+//전화번호3 입력 필드의 값이 변경될 때마다 에러 메시지를 초기화합니다
+function resetPhone3ErrorMsg() {
+  resetErrorMsg('phone3-error');
+}
 
 // 아이디 입력 필드의 값이 변경될 때마다 에러 메시지를 초기화합니다
-function handleUidInputChange() {
-  resetUidErrorMsg();
+function handleuIdInputChange() {
+  resetuIdErrorMsg();
 }
 
 //비밀번호 입력 필드의 값이 변경될 때마다 에러 메시지를 초기화합니다
@@ -402,14 +457,18 @@ function handleUnameInputChange() {
   resetUnameErrorMsg();
 }
 
-//이름 입력 필드의 값이 변경될 때마다 에러 메시지를 초기화합니다
-function handleBirthInputChange() {
-  resetBirthErrorMsg();
+//전화번호 입력 필드의 값이 변경될 때마다 에러 메시지를 초기화합니다
+function handlePhone2InputChange() {
+	resetPhone2ErrorMsg();
+}
+//전화번호 입력 필드의 값이 변경될 때마다 에러 메시지를 초기화합니다
+function handlePhone3InputChange() {
+	resetPhone3ErrorMsg();
 }
 
 // 아이디 입력 필드에 이벤트 리스너를 등록합니다
-const uidInputEl = document.querySelector('input[name="uid"]');
-uidInputEl.addEventListener('input', handleUidInputChange);
+const uIdInputEl = document.querySelector('input[name="uId"]');
+uIdInputEl.addEventListener('input', handleuIdInputChange);
 
 // 비밀번호 입력 필드에 이벤트 리스너를 등록합니다
 const pwdInputEl = document.querySelector('input[name="pwd"]');
@@ -422,5 +481,13 @@ pwd2InputEl.addEventListener('input', handlePwd2InputChange);
 // 이름 입력 필드에 이벤트 리스너를 등록합니다
 const unameInputEl = document.querySelector('input[name="uname"]');
 unameInputEl.addEventListener('input', handleUnameInputChange);
+
+//전화번호2 입력 필드에 이벤트 리스너를 등록합니다
+const phone2InputEl = document.querySelector('input[name="phone2"]');
+phone2InputEl.addEventListener('input', resetPhone2ErrorMsg);
+
+//전화번호3 입력 필드에 이벤트 리스너를 등록합니다
+const phone3InputEl = document.querySelector('input[name="phone3"]');
+phone3InputEl.addEventListener('input', resetPhone3ErrorMsg);
 
 </script>

@@ -46,13 +46,12 @@
 <form name="list" action="a_user_update.jsp">
 	<table>
 		<tr>
-			<th>선택</th>
 			<th>문의 번호</th>
 			<th>아이디</th>
 			<th>문의 날짜</th>
 			<th>제목</th>
 			<th>문의 상태</th>
-			<th>확인</th>
+			<th>답변</th>
 		</tr>
 		<%
 			ResultSet rs = null;
@@ -74,31 +73,32 @@
 					String qna
 					= rs.getString("Q_NUM") != null ? rs.getString("Q_NUM") : "-";
 					
-					String qna1
-						= rs.getString("Q_NUM") != null ? "button" : "hidden";
-					
 					String qnaa =rs.getString("Q_STATUS");
 					String qnaa2 = "";
+					
+					qnaa2 = (qnaa == null) ? "-" : (qnaa.equals("O") ? "OPEN" : (qnaa.equals("P") ? "PENDING" : "CLOSE"));
 
-			        if (qnaa != null) {
-			            if (qnaa.equals("O")) {
-			            	qnaa2 = "OPEN";
-			            } else if (qnaa.equals("P")) {
-			            	qnaa2 = "PENDING";
-			            } else if (qnaa.equals("C")) {
-			            	qnaa2 = "CLOSE";
+
+					String qstyle = "";
+			            if (qnaa2.equals("OPEN")) {
+								qstyle = "red";
+			            } else if (qnaa2.equals("PENDING")) {
+			            	qstyle = "blue";
+			            } else if (qnaa2.equals("CLOSE")) {
+			            	qstyle = "black";
 			            }
-			        }
+			            
+			            String aChe
+			               = rs.getString("Q_STATUS").equals("C")? "수정":"답변";
       
 		%>
 			<tr>
-				<td><input type="radio" name="user" value="<%=uId%>"></td>
 				<td><%=qna%></td>
 				<td><%=uId%></td>
 				<td><%=qna_d%></td>
 				<td><%=qna_t%></td>
-				<td><%=qnaa2%></td>
-				<td><input style="margin-bottom: 7px;" type=<%= qna1 %>  onclick="qna('<%=uId %>')" value="확인"></td>
+				<td style="color:<%= qstyle %>"><%=qnaa2%></td>
+				 <td><input type="button" value="<%= aChe %>" onclick="qq_a(<%=qna%>, <%=uId %>>)"></td>
 			</tr>
 			
 		<%
@@ -109,8 +109,6 @@
 			} 
 		%>
 	</table>
-	<input type="button" onclick="userUpdate()" value="수정"/>
-	<input type="button" onclick="userRemove()" value="삭제"/>
 	<input type="button" onclick="isback()" value="돌아가기"/>
 </form>
 </body>
@@ -125,10 +123,10 @@
 					location.reload(); //새로고침
 				}		
 				
-		function qna(uId){
-			window.open("a_QnA_Search.jsp?uId="+uId,"qpop","width=1000, height=500");	
-		}		
-
+		function qq_a(qNo) {
+			window.open("a_QnA_Answer.jsp?qNo=" + qNo + "&uId=" + uId, "popup1", "width=500, height=500");
+         }
+		
 		function searchUser() {
 			  var form = document.searchForm;
 			  var searchId = form.searchId.value.trim();

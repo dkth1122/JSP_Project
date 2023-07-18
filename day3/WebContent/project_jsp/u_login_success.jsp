@@ -38,14 +38,16 @@
 <%
 
 	request.setCharacterEncoding("UTF-8");
-	String uId = request.getParameter("uid");
 
-	String a = (String)session.getAttribute("id");
+	String uId = (String)session.getAttribute("uId");
 	String b = (String)session.getAttribute("uname");
 	String c = (String)session.getAttribute("status");
-	out.println(b + "님 환영합니다.");	
 	
-	session.setAttribute("uname", b);
+	session.setAttribute("uId", uId);
+	
+	out.println(b + "님 환영합니다.");	
+
+	
 
 	if(c.equals("A")){
 %>

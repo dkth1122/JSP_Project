@@ -170,8 +170,8 @@
 	String name = (String)session.getAttribute("uname");
 	session.setAttribute("uname", name);
 	
-	String id = (String)session.getAttribute("id");
-	session.setAttribute("id", id);
+	String uId = (String)session.getAttribute("uId");
+	session.setAttribute("uId", uId);
 	
 	if (name == null || name.equals("")) {
 	    response.sendRedirect("home_main.jsp");

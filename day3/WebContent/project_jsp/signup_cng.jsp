@@ -1,21 +1,17 @@
-<%@page import="java.io.ObjectInputFilter.Status"%>
-<%@page import="java.security.interfaces.RSAKey"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-
 	*{
 		font-family: a타이틀고딕2;
 		font-size: 24px;
 	}
 
 	body{
-	background-color: aliceblue; 
+		background-color: aliceblue; 
 	}
 	
 	#container{
@@ -31,31 +27,17 @@
 </style>
 </head>
 <body>
-<%@ include file="jdbc_set.jsp" %>
-
 <div id="container">
 	<h1>💕 로그인 성공 !</h1>
-<%
-
-	request.setCharacterEncoding("UTF-8");
-	String uId = request.getParameter("uid");
-
-	String b = (String)session.getAttribute("uname");
-	out.println(b + "님 회원가입을 축하드려요!");	
-	
-	session.setAttribute("uname", b);
-
-	
-/* 	session.setMaxInactiveInterval(60 * 60) ;
-	
-	int mi = session.getMaxInactiveInterval() / 60 ;
-	out.println( mi + "분");
-	 */
-%>
-<div><input type="button" onclick="isback()" value="홈페이지로" style="font-family: a타이틀고딕2;"></div>
-<div><input type="button" onclick="back()" value="로그아웃" style="font-family: a타이틀고딕2;"></div>
-
-	</div>
+	<%
+		String uId = (String)session.getAttribute("uId");
+		String uname = (String)session.getAttribute("uname");
+		out.println(uname + "님 회원가입을 축하드려요!");	
+		out.println(uId + "님 회원가입을 축하드려요!");
+	%>
+	<div><input type="button" onclick="isback()" value="홈페이지로" style="font-family: a타이틀고딕2;"></div>
+	<div><input type="button" onclick="back()" value="로그아웃" style="font-family: a타이틀고딕2;"></div>
+</div>
 </body>
 </html>
 <script>

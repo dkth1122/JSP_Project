@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>문의게시판</title>
 <style>
    body{
       background-color: #023047;
@@ -14,8 +14,8 @@
 </head>
 <body>
    
-<% String id = (String)session.getAttribute("id");
-   session.setAttribute("uId", id);
+<% String uId = (String)session.getAttribute("uId");
+   session.setAttribute("uId", uId);
    %>
    <form action="u_QnA_Upload.jsp" name="check">
       <div>제목 : <input type="text" name="tit"></div>
@@ -44,7 +44,7 @@
    }
 
    function isback() {
-      location.href="home_main_login.jsp"; 
+      location.href="u_mypage.jsp"; 
    } 
 </script>
 </html>

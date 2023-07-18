@@ -76,10 +76,33 @@
 					= rs.getString("EMAIL")  != null ? rs.getString("EMAIL") : "-";
 					String addr
 						= rs.getString("ADDR")  != null ? rs.getString("ADDR") : "-";
-					String banYn 
-						= rs.getString("BANYN").equals("Y") ? "정지" : "";
-					String ban 
-						= rs.getString("BANYN").equals("Y") ? "해제" : "정지";
+					
+					String banYn = "";
+					String banYn1 = rs.getString("BANYN");
+					if (banYn1.equals("Y")) {
+					    banYn = "정지";
+					} else if (banYn1.equals("S")) {
+					    banYn = "탈퇴";
+					}
+					
+					String banS = "";
+					if (banYn1.equals("Y")) {
+					   banS = "red";
+					} else if (banYn1.equals("S")) {
+						banS = "blue";
+					}
+					
+					String ban = "";
+					String originalBanYn = rs.getString("BANYN");
+
+					if (originalBanYn.equals("Y")) {
+					    ban = "해제";
+					} else if (originalBanYn.equals("N")) {
+					    ban = "정지";
+					} else if (originalBanYn.equals("S")) {
+					    ban = "탈퇴해제";
+					}
+					
 					int cnt
 						= rs.getInt("CNT");
 					String cnt2
@@ -95,7 +118,7 @@
 				<td><%=birth%></td>
 				<td><%=email%></td>
 				<td><%=addr%></td>
-				<td style="color:red"><%=banYn%></td>
+				<td style="color:<%= banS%>"><%=banYn%></td>
 				<td><input style="margin-bottom: 7px;"  type="button" onclick="bchange('<%=rs.getString("BANYN")%>', '<%=uId %>')" value=<%= ban %>></td>
 				<td><%=cnt%></td>
 				<td><input style="margin-bottom: 7px;"  type=<%= cnt2 %> onclick="cnt('<%=uId %>')" value="초기화"></td>
@@ -145,10 +168,7 @@
 			window.open("a_cnt_reset.jsp?uId="+uId,"cpop","width=500, height=300");	
 		}	
 		
-		function qna(uId){
-			window.open("a_QnA_Search.jsp?uId="+uId,"qpop","width=1000, height=500");	
-		}		
-		
+
 		function userUpdate(){
 			   if (!confirm("정말 수정하시겠습니까?")) {
 			      return;

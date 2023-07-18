@@ -8,8 +8,9 @@
 </head>
 <body>
 	<button onclick="go()">고객 관리</button>
-	<button onclick="qna()">게시판</button>
-	<button onclick="isback()">돌아가기 버튼</button>
+	<button onclick="qna()">문의 확인</button>
+	<button onclick="mem()">멤버쉽 관리</button>
+	<button onclick="isback()">로그아웃</button>
 </body>
 </html>
 <script>
@@ -19,7 +20,10 @@
 	function qna() {
 		location.href = "a_admin2.jsp"
 	}
+	function mem() {
+		location.href = "a_mem.jsp"
+	}
 	function isback() {
-		location.href = "home_main_login.jsp"
+		location.href = "home_main.jsp"
 	}
 </script>
