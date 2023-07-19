@@ -10,19 +10,51 @@
     font-family: a타이틀고딕2;
   }
   
+  @font-face {
+        font-family: "삼립호빵";
+        src: url("./img/SDSamliphopangcheTTFOutline.ttf") format("truetype");
+    }
+    
+    @font-face {
+        font-family: "a타이틀고딕2";
+        src: url("./img/A타이틀고딕2.TTF") format("truetype");
+    }
+    
   body {
-    background-color: aliceblue;
+    background-color: #fdfdd3;
+    margin: 10px 550px;
+  }
+  
+  #h{
+  	font-family: "삼립호빵";
+  	font-size: 50px;
+  	margin: 30px auto;
+  	width: 540px ;
+  	color: pink;
+  	background: white;
   }
   
   #container {
-    width: 650px;
-    margin: 10px auto;
+    width: 590px;
+    margin: 50px auto;
   }
   
+  .c_h{
+    text-align: center;
+	font-family: "삼립호빵" ;
+	font-size: 32px; 
+	color: rgb(255, 99, 146);
+	margin: 40px;
+  }
+  
+  
   fieldset {
+  	width: 500px;
+    height: 600px;
     margin-bottom: 20px;
     background-color: white;
     border: 3px dashed rgb(253, 167, 167);
+    border-radius: 50px;
   }
   
   ul {
@@ -41,10 +73,18 @@
     font-weight: bold;
   }
   
+    .li_label2 {
+    width: 120px;
+    line-height: 36px;
+    float: left;
+    font-weight: bold;
+    color: #83e6a2;
+  }
+  
   .txt_input {
     width: 300px;
     height: 30px;
-    border: 1px solid rgb(253, 167, 167);
+    border: 1px solid #9ADFB0;
   }
   
   #buttons {
@@ -53,19 +93,36 @@
     text-align: center;
   }
   
-  .btn_input {
-    width: 150px;
-    height: 50px;
-    font-size: 20px;
-  }
+ 	.btn_input {
+		width: 150px;
+	  	height: 36px;
+		font-size: 15px;
+		font-family: a타이틀고딕2;
+		color:pink;
+		border-radius: 30px;
+		border:1px solid pink;
+		background-color: #fdfdd3;
+		margin: 30px 10px;
+	}
+	
+	 	.btn_input2 {
+		width: 60px;
+	  	height: 30px;
+		font-size: 12px;
+		font-family: a타이틀고딕2;
+		color:pink;
+		border-radius: 30px;
+		border:1px solid pink;
+		background-color: #fdfdd3;
+	}
 
   input[required] {
-    border: 1px solid rgb(76, 0, 255);
+    border: 1px solid pink;
   }
   
   li label {
     font-style: italic;
-    color: rgb(79, 62, 173);
+    color: rgb(255, 99, 146);
   }
   
   input:checked+label {
@@ -92,37 +149,42 @@
   .birth_sel{
     width: 100px;
     height:30px;
-    border: 1px solid rgb(253, 167, 167);
+    border: 1px solid #9ADFB0;
   }
   
   .email_input{
     height:30px;
-    border: 1px solid rgb(253, 167, 167);
+    border: 1px solid #9ADFB0;
+    
   }
   
   .phone_input{
     width:100px;
     height:30px ;
-    border: 1px solid rgb(253, 167, 167);
+    border: 1px solid #9ADFB0;
   }
   
   .error-msg {
     color: red;
   }
   
+  	input:focus { 
+		outline: none !important; border-bottom-color: pink; box-shadow: 0 0 10px #d6a8e9; 
+		}
+  
 </style>
 </head>
 <body>
-  <div id="container">
-    <h1>💕회원 가입을 환영합니다</h1>
     <form name="list" action="signup_insert.jsp">
+    <div id="h">💕회원 가입을 환영해요💕</div>
       <fieldset>
-        <legend>사용자 정보</legend>
+      <div id="container">
         <ul>
+        <div class="c_h">사용자 정보</div>
           <li>
             <label class="li_label" for="uId">아이디</label>
             <input class="txt_input" type="text" name="uId" required>
-            <input type="button" onclick="idCheck()" value="중복체크">
+            <input class="btn_input2" type="button" onclick="idCheck()" value="중복체크">
             <div id="uId-error" class="error-msg"></div>
           </li>
           
@@ -146,7 +208,7 @@
           </li>
           
           <li>
-            <label class="li_label"  for="age2">생년월일</label>
+            <label class="li_label2"  for="age2">생년월일</label>
             <div class="info" id="info__birth">
               <select id="birth-year" name="age-year" class="birth_sel">
                 <option disabled selected>출생 연도</option>
@@ -162,7 +224,7 @@
           </li>               
                       
           <li>
-            <label class="li_label" for="email">이메일주소</label>
+            <label class="li_label2" for="email">이메일주소</label>
             <input class="email_input" type="text" name="email" />
             <label>@</label>
             <input class="email_input" id="domain-txt" type="text" name="e-domain2"/>
@@ -178,7 +240,7 @@
           </li>
           
           <li>
-            <label class="li_label" for="phone1">핸드폰 번호</label>
+            <label class="li_label2" for="phone1">핸드폰 번호</label>
             <select class="phone_input" name="phone1">
               <option value="">번호 선택</option>
               <option value="010">010</option>
@@ -197,24 +259,16 @@
           </li>
           
           <li>
-            <label class="li_label" for="addr">주소</label>
+            <label class="li_label2" for="addr">주소</label>
             <input class="txt_input" type="text" name="addr" >
             <div id="addr-error" class="error-msg"></div>
           </li>
-
-        </ul>
-      </fieldset>
-      <fieldset>
-        <legend>이벤트와 새로운 소식</legend>
-        <input type="radio" name="mailing" id="mailing_y"> 
-        <label for="mailing_y">메일 수신</label> 
-        <input type="radio" name="mailing" id="mailing_n" checked> 
-        <label for="mailing_n">메일 수신 안 함</label>
-      </fieldset>
       <div id="buttons">
         <input class="btn_input" type="button" onclick="signup()" value="가입하기"/> 
         <input class="btn_input" type="button" onclick="isback()" value="홈페이지로"/>
       </div>
+        </ul>
+      </fieldset>
     </form>
   </div>
 </body>

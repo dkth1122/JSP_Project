@@ -8,63 +8,103 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	 @font-face {
+        font-family: "삼립호빵";
+        src: url("./img/SDSamliphopangcheTTFOutline.ttf") format("truetype");
+    }
+    
+    @font-face {
+        font-family: "a타이틀고딕2";
+        src: url("./img/A타이틀고딕2.TTF") format("truetype");
+    }
 
 	*{
 		font-family: a타이틀고딕2;
-		font-size: 24px;
 	}
 
-	body{
-	background-color: aliceblue; 
+	body {
+		background-color: #fdfdd3;
 	}
 	
-	#container{
-		width : 500px;
-		height: 300px; 
-		line-height: 60px;
-		margin: 100px auto;
+	#container {
+		width: 600px;
+		margin: 10px auto;
+	}
+	
+
+    img{
+        width: 400px;
+        margin-top: 30px;
+    }
+
+	.c_1{
+		position: absolute;
+        top : 0%;
+        left: 50%;
+	}
+    
+    .c_1:first-child > img{
+        width: 250px;
+    }
+    
+    .c_1:first-child > a{
+   		font-family: "삼립호빵";
+    	width: 100px;
+    	font-size:32px;
+    	display: block;
+		position: absolute;
+		top : 35%;
+        left: 35%;
+        text-decoration: none;
+        color: rgb(255, 99, 146);
+    }
+	
+	fieldset {
+        width: 500px;
+        height: 40px;
+		margin-bottom: 20px;
 		background-color: white;
-		border: 3px dashed rgb(253, 167, 167);
-		text-align: center;
+        border: 3px dashed pink;
+        border-radius: 50px;
+	}
+	.f-1{
+		 text-align: center;
+		 font-size: 32px;
+		 color: rgb(255, 99, 146);
 	}
 	
+	
+	#gam:hover {
+	cursor: pointer;
+	}
 </style>
 </head>
 <body>
 <%@ include file="jdbc_set.jsp" %>
 
 <div id="container">
-	<h1>💕 로그인 성공 !</h1>
 <%
 
 	request.setCharacterEncoding("UTF-8");
 
 	String uId = (String)session.getAttribute("uId");
-	String b = (String)session.getAttribute("uname");
-	String c = (String)session.getAttribute("status");
+	String uname = (String)session.getAttribute("uname");
 	
 	session.setAttribute("uId", uId);
+	session.setAttribute("uname", uname);
 	
-	out.println(b + "님 환영합니다.");	
-
-	
-
-	if(c.equals("A")){
 %>
-	<div><input type="button"  value="관리자 화면 이동" /></div>
-<%
-	}
-	
-/* 	session.setMaxInactiveInterval(60 * 60) ;
-	
-	int mi = session.getMaxInactiveInterval() / 60 ;
-	out.println( mi + "분");
-	 */
-%>
-<div><input type="button" onclick="isback()" value="홈페이지로" style="font-family: a타이틀고딕2;"></div>
-<div><input type="button" onclick="back()" value="로그아웃" style="font-family: a타이틀고딕2;"></div>
 
-	</div>
+        <div id="container">
+            <div class="c_1">
+                    <img src ="img/pngwing.com (1).png">
+                    <a><%=uname%> 로그인 성공★</a>
+            </div>
+            <img id="gam" onclick="isback()" src = "img/image-removebg-preview.png">
+            	<fieldset>
+                        <div class="f-1">▲ 홈페이지로 </div>
+                    </fieldset>
+        </div>
 </body>
 </html>
 <script>

@@ -6,64 +6,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Main page</title>
-<style>
+ <style>
     *{
         font-family: a타이틀고딕2;
     }
+    
     body { 
         padding: 0px; 
         margin: 0px; 
     }
-
-    #wrapper{
-      width:100%;   
-      display:grid;
-      margin: 100px auto;
-      grid-template-areas:
-		"   a    b   b   "
-		"   c    d    d   ";
-    }
-
-    .a-content {
-         grid-area: a; 
-         height: 600px;
-         background-color: #ffffff;
-         margin: 10px 10px;
-        }
-
-    .a-content>img{
-        width: 80%;
-        height: 90%;
-    }
-
-    .b-content {
-         grid-area: b; 
-         height: 400px;
-         background-color: #e6da40;
-         margin: 10px 10px;
-        }
     
-        .c-content {
-         grid-area: c; 
-         height: 400px;
-         background-color: #ff6d6d;
-         margin: 10px 10px;
-        }
+     /* header(메뉴바) 스타일 */
+    .header{
+	  width: 100%;
+	  height: auto;
+	  background-color: rgba(255, 255, 255, 0.8);
+      overflow:hidden;
+      transition: all 0.6s;
+    }
+    
+    .top{
+        top:15%;
+        left: 85%;
+        background-color: rgba(255, 255, 255, 0.8);
+        height: 37px;
+    }
 
-        .d-content {
-         grid-area: d; 
-         height: 400px;
-         background-color: #92e9ff;
-         margin: 10px 10px;
-        }
+    .t-in{
+        float: right;
+    }
+    
+    .t-in > a{
+        display: block;
+        margin: 10px 10px;
+        height: 20px;
+        float: left;
+    }
 
-    .footer {
-         width: 100%;
-         height: 150px;
-         background-color: #f0ed3c;
-         margin: 10px 10px;
-        }
+    .t-img{
+	  width: 20px;
+	  height: 20px;
+      margin-top: 9px;
+      margin-right: 10px;
+    }
 
+    .h-h{
+        clear: both;
+        display: block;
+        width: 260px;
+        height: 90px;
+        float: left;
+        font-size: 50px;
+        padding-left: 20px;
+        padding-top: 24px;
+    }
+
+    .h-in{
+        float: left;
+        height: 114px;
+        transition: all 0.6s;
+    }
+
+    .h-c{
+      	width:195px;
+        display: inline-block;
+        font-size: 16px; 
+        margin: 30px 20px;
+        text-align: center;
+    }  
+
+
+    a{
+    	text-decoration:none;
+    	color:black;
+    }
+    
+    .category{
+    	list-style: none;
+    }
+    
+     .category>li {
+        position: relative;
+        
+    }
+    
+    .category>li ul {
+        width: 195px;
+    	padding:0px;
+        padding-top: 30px;
+        display: inline-block;
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+    	list-style: none;
+        opacity: 0;
+        transition: all 0.6s;
+    }
+    
+    .h-in:hover{
+    	height: 168px;
+	}
+
+    .category:hover ul {
+        opacity: 1;
+	}
+
+
+    /*body 비디오 박스 스타일*/
     video{
         width: 100%; 
     }
@@ -72,9 +121,8 @@
         height: 800px; 
         overflow: hidden;
         margin: 0px auto; 
-        position: relative;
-	    top:200px;
         clear: both;
+        transition: all 0.6s;
     }
 
     .v-text{
@@ -90,90 +138,119 @@
         color: #ffffff; 
     }
 
-    .header{
-	  width: 100%;
-	  height: 200px;
-	  background-color: rgba(255, 255, 255, 0.8);
-	  position: fixed;
-	  top: 0;
-	  left: 0;
-	  z-index: 9999; /* 헤더의 쌓임 순서를 설정 */
+
+    /*video 밑 div박스 스타일 */
+    #wrapper{
+      width:100%;
     }
 
-     .h-h{
-        float:left;
-        font-size: 50px; 
-        margin: 20px; 
-        margin-top: 40px; 
-        color: white;
-    } 
+    .a-content {
+        width: 50%;
+        height: 600px;
+        margin: 0;
+        padding: 0;
+        float: left;
+        }
 
-      .h-c{
-      	width:200px;
-        display: inline-block;
-        font-size: 16px; 
-        margin: 30px 20px;
+    .a-content>img{
+        width: 80%;
+        height: 90%;
+    }
+
+    .b-content {
+        width: 50%;
+        height: 600px;
+        margin: 0;
+        padding: 0;
+        background-color: #e6da40;
+        float: left;
+        }
+    
+    .c-content {
+        clear: both;
+        width: 100%;
+        height: 400px;
+        background-color: #ff6d6d;
+    }
+
+    .d-content {
+        width: 100%;
+        height: 400px;
+        background-color: #92e9ff;
+    }
+
+
+    /* footer 스타일 */
+    @font-face {
+        font-family: "a타이틀고딕2";
+        src: url("A타이틀고딕2.TTF") format("truetype");
+    }
+
+    #container_f {
+        width: 100%;
+        height: 200px;
+        font-family: a타이틀고딕2;
+        background-color: rgb(245, 233, 224);
+        margin: 0px auto;
+    }
+    
+    .part_box {
+        width: 1080px;
+        height: 200px;
+        margin: auto;
+    }
+    
+    .part_logo,
+    #part1,
+    #part2,
+    #part3 {
+        width: 250px;
+        float: left;
+        margin: 50px auto;
+    }
+
+    .part_logo{
+        height: 76px;
+        background-color: #000000;
+        margin-right: 30px;
+    }
+    .logo_guide{
+        color: #ffffff;
+        font-size: 30px;
+        line-height: 14px;
         text-align: center;
-    }  
-
-    .t-img{
-	  width: 20px;
-	  height: 20px;
-	  position: absolute;
-	  bottom: 0%;
     }
 
-    .top{
-    	width:500px;
-        position: relative;
-        top:10%;
-        left: 80%;
+    #f_img {
+        position: absolute;
+        left: 7%;
+        top: 30%;
+        width: 100px;
     }
-
-    .t-in{
-    	width:100px;
-        display: inline;
+    .제목{
+        font-weight: bold;
     }
-    
+    .내용{
+        font-size: 10px;
+    }
+    .rborder{
+        border-right: 1px solid #000000;
+    }
     a{
-    	text-decoration:none;
-    	color:black;
-    }
-    
-    .category{
-    	list-style: none;
-    	position: absolute;
-    	top:15%;
-    	left: 15%;
-    }
-    
-     .category>li {
-        position: relative;
-    }
-    
-    .category>li ul {
-        display: none;
-        position: absolute; 
-        top: 100%; 
-        left: 0; 
-    	list-style: none;
-    }
-    
-    .category>li:hover > ul {
-    	display: inline-block;
-	}
-    
+        text-decoration: none;
+        color: yellowgreen;
+    }       
   </style>
 </head>
 <body>
 <%
-	String name = (String)session.getAttribute("uname");
-	session.setAttribute("uname", name);
+	String uname = (String)session.getAttribute("uname");
+	session.setAttribute("uname", uname);
 	
 	String uId = (String)session.getAttribute("uId");
 	session.setAttribute("uId", uId);
 	
-	if (name == null || name.equals("")) {
+	if (uname == null || uname.equals("")) {
 	    response.sendRedirect("home_main.jsp");
 	}
 
@@ -181,12 +258,16 @@
 
 <div class="header">
     <div class="top">
-        <div class="t-in"><%= name %>님 환영합니다~❤</div>     
-         <div class="t-in"><a href="u_mypage.jsp"> 마이페이지<img class="t-img" src="./img/free-icon-cat-1956176.png"></a></div>
-        <div class="t-in"><a href="home_main.jsp">&nbsp;&nbsp;&nbsp;&nbsp;로그아웃<img class="t-img" src="./img/free-icon-sign-out-7046204.png"></a></div>
+    <div class="t-in">
+        <a><%= uname %>님 환영합니다~❤</a>     
+        <a href="u_mypage.jsp">마이페이지</a>
+        <a href="home_main.jsp">로그아웃</a>
+        <img class="t-img" src="./img/free-icon-logout-3580154.png">
+    	</div>
     </div>
+  </div>
     
- <div class="h-h"><a href="home_main_login.jsp">감자의 집</a></div> 
+ <div class="h-h"><a href="home_main.jsp">감자의 집</a></div> 
  <div class="h-in">
 	 <ul class="category">
 	 	<li class="h-c">올해의 강아지
@@ -218,16 +299,16 @@
 	    </li>
 	    
 	    <li class="h-c">고객센터
-	     		<ul>
+	     	<ul>
 				<li>하위 카테고리9</li>
 				<li>하위 카테고리10</li>
-	    </ul>   
+	    	</ul>   
 	    </li>
 	</ul>     
 </div>
 </div>
 <div class="video-box">
-<video src="./img/AdobeStock_359391411.mov" loop autoplay>
+<video src="./img/AdobeStock_359391411.mov" autoplay muted loop>
     <strong>안녕! 감자의 집에 온 걸 환영해요 .</strong>
 </video>
 <div class="v-text">
@@ -242,7 +323,38 @@
     <div class="c-content">box3</div>
     <div class="d-content">box3</div>
   </div>
-  <div class="footer">box4</div>
-</body>
+  <div id="container_f">
+    <div class="part_box">
+        <div class="part_logo"><p class="logo_guide">로고 집어넣는 곳</p></div>
+        <div id="part1">
+            <div class="제목"> 네이버㈜</div>
+            <div class="내용">
+                <div>사업자등록번호 220-81-62517</div>
+                <div>통신판매업신고번호 2006-인천-0692호</div>
+                <div>대표이사 최인경</div>
+                <span class="rborder">전화 1533-XXXX</span>
+                <span>이메일 XXX@naver.com</span>
+            </div>
+        </div>
+
+        <div id="part2">
+            <div class="제목">고객센터</div>
+            <div class="내용">
+                <div>강원도 춘천시 퇴계로 89 강원전문건설회관</div>
+                <div>wjsghk 1588-XXXX</div>
+                <div>결제도용신고 1588-XXXX</div>
+                <div><a href="javascript:;">1:1문의 바로가기</a></div>
+            </div>
+        </div>
+
+        <div id="part3">
+            <div class="제목">전자금융거래 분쟁처리</div>
+            <div class="내용">
+                <div>전화 1588-XXXX</div>
+                <div><a href="javascript:;">1:1 문의 바로가기</a></div>
+            </div>
+        </div>
+    </div>
+</div>
 </html>
 

@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="../js/code.jquery.com_jquery-3.7.0.min.js"></script>
 <style>
     *{
         font-family: a타이틀고딕2;
@@ -50,11 +49,10 @@
         <%
             ResultSet rs = null;
             Statement stmt = null;
-            String uId1 = request.getParameter("uId");
+            String uId1 = request.getParameter("searchId");
             boolean tableVisible = true; // 테이블이 보일지 여부를 결정하는 변수
-            
             try {
-                String sql = "SELECT * FROM YNY_TB_USER U LEFT JOIN YNY_TB_CHECK C ON U.U_ID = C.U_ID WHERE STATUS = 'U' AND U_ID = '"+ uId1 +"' AND Q_NUM IS NOT NULL ORDER BY Q_NUM ASC";
+                String sql = "SELECT * FROM YNY_TB_USER U LEFT JOIN YNY_TB_CHECK C ON U.U_ID = C.U_ID WHERE STATUS = 'U' AND C.U_ID = '"+ uId1 +"' AND Q_NUM IS NOT NULL ORDER BY Q_NUM ASC";
                 stmt = conn.createStatement();
                 rs = stmt.executeQuery(sql);
                 
@@ -81,9 +79,9 @@
                         String qstyle = "";
                         if (qnaa2.equals("OPEN")) {
                             qstyle = "red";
-                        } else if (qnaa2.equals("PENDING")) {
+                        }else if(qnaa2.equals("PENDING")) {
                             qstyle = "blue";
-                        } else if (qnaa2.equals("CLOSE")) {
+                        }else if(qnaa2.equals("CLOSE")) {
                             qstyle = "black";
                         }
                         
@@ -99,12 +97,12 @@
             <td><input type="button" value="<%= aChe %>" onclick="qq_a(<%=qna%>)"></td>
         </tr>
 <% 
-                    } // end while
-                } // end else
+                    }// end while
+                }// end else
             } catch (SQLException ex) {
                 tableVisible = false; // 테이블을 숨기도록 변수 설정
                 out.println("해당 아이디를 사용하고 있는 사용자가 없습니다.");
-                /* out.println("SQLException: " + ex.getMessage()); */
+               	/* out.println("SQLException: " + ex.getMessage()); */
             } 
         %>
     </table>
