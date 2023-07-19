@@ -21,7 +21,7 @@
 	<form name="check">
 
 		<%
-		String uId = request.getParameter("uid");
+		String uId = request.getParameter("uId");
 		ResultSet rs = null; // 검색 결과를 담기 위한 객체 
 		Statement stmt = null; // 쿼리 호출을 위한 객체 
 

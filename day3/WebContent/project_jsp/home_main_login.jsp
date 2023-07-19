@@ -188,15 +188,15 @@
 
     #container_f {
         width: 100%;
-        height: 200px;
+        height: 100px;
         font-family: a타이틀고딕2;
-        background-color: rgb(245, 233, 224);
+        background-color: white;
         margin: 0px auto;
     }
     
     .part_box {
         width: 1080px;
-        height: 200px;
+        height: 100px;
         margin: auto;
     }
     
@@ -211,11 +211,11 @@
 
     .part_logo{
         height: 76px;
-        background-color: #000000;
+        background-color: white;
         margin-right: 30px;
     }
     .logo_guide{
-        color: #ffffff;
+        color: yellowgreen;
         font-size: 30px;
         line-height: 14px;
         text-align: center;
@@ -317,15 +317,15 @@
   <p>로그인 </p>
 </div>
 
-  <div id="wrapper">
+<!--   <div id="wrapper">
     <div class="a-content"><img src="./img/kp3.jpg"></div>
     <div class="b-content"></div>
     <div class="c-content">box3</div>
     <div class="d-content">box3</div>
-  </div>
+  </div> -->
   <div id="container_f">
     <div class="part_box">
-        <div class="part_logo"><p class="logo_guide">로고 집어넣는 곳</p></div>
+        <div class="part_logo"><p class="logo_guide">감자의 집</p></div>
         <div id="part1">
             <div class="제목"> 네이버㈜</div>
             <div class="내용">

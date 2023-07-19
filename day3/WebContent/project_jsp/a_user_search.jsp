@@ -7,28 +7,65 @@
 <meta charset="UTF-8">
 <title>검색 결과</title>
 <style>
+	@font-face {
+        font-family: "삼립호빵";
+        src: url("./img/SDSamliphopangcheTTFOutline.ttf") format("truetype");
+    }
+    
+    @font-face {
+        font-family: "a타이틀고딕2";
+        src: url("./img/A타이틀고딕2.TTF") format("truetype");
+    }
 	*{
 		font-family: a타이틀고딕2;
 	}
 	body {
+		background-color:#e8ffef;
 		text-align: center;
-		font-size: 24px;
+		font-size: 16px;
+		color: #ggg;
 	}
 	th {
-		background-color: pink;
+		background-color: #fdfdd3;
+		color: rgb(255, 99, 146);
 	}
 	table{
 		border-collapse: collapse;
+		margin: 10px auto;
 	}
 	td, th {
-		border: 1px solid black;
-		padding: 0px 12px;
+		border: 1px solid pink;
+		padding: 3px;
 	}
 	.btn{
 		width: 50px;
 		margin: 10px auto;
 	}
-	
+	td{
+		background-color: white;
+	}
+	.btn_input{
+		width: 100px;
+		height: 24px;
+		font-size: 15px;
+		font-family: a타이틀고딕2;
+		color:rgb(255, 99, 146);
+		border-radius: 30px;
+		border:1px solid pink;
+		background-color: #fdfdd3;
+		cursor: pointer;
+		}
+	input{
+		margin: 5px;
+		border: 1px solid pink;
+		color: rgb(255, 99, 146);
+	}
+	input:focus { 
+		outline: none !important; border-bottom-color: pink; box-shadow: 0 0 10px #d6a8e9; 
+	}
+	h1{
+		color: rgb(255, 99, 146);
+	}
 </style>
 </head>
 <body>
@@ -194,15 +231,15 @@
             <td><%= email %></td>
             <td><%= addr %></td>
             <td><%= banYn %></td>
-            <td><input type="button" onclick="bchange('<%=userInfo.getBanYn()%>', '<%=userInfo.getUId() %>')" value=<%= ban %>></td>
+            <td><input style="background-color: #fdfdd3;" type="button" onclick="bchange('<%=userInfo.getBanYn()%>', '<%=userInfo.getUId() %>')" value=<%= ban %>></td>
             <td><%= cnt %></td>
-            <td><input type=<%= cnt2 %> onclick="cnt('<%=userInfo.getUId() %>')" value="초기화"></td>
+            <td><input style="background-color: #fdfdd3;" type=<%= cnt2 %> onclick="cnt('<%=userInfo.getUId() %>')" value="초기화"></td>
             <!-- 다른 필드들의 값 추가 -->
           </tr>
         </table>
-	<input type="button" onclick="userUpdate()" value="수정"/>
-	<input type="button" onclick="userRemove()" value="삭제"/>
-	<input type="button" onclick="isback()" value="돌아가기"/>
+	<input class="btn_input" type="button" onclick="userUpdate()" value="수정"/>
+	<input class="btn_input" type="button" onclick="userRemove()" value="삭제"/>
+	<input class="btn_input" type="button" onclick="isback()" value="돌아가기"/>
         <% 
       } else {
         // 검색 결과가 없는 경우

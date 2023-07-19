@@ -61,7 +61,7 @@
 	
 	fieldset {
         width: 500px;
-        height: 280px;
+        height: 250px;
 		margin-bottom: 20px;
 		background-color: white;
         border: 3px dashed pink;

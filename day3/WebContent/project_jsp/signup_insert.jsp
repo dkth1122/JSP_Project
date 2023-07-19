@@ -39,18 +39,14 @@
 		}
 					
 		String email = ""; 
-		
-		
-		if(emailID  == null || emailID.equals("")){
-			email = "" ;
-		}
-		else if (email2 == null || email2.equals("") && emailDM == null || emailDM.equals("")) {
-				email = "" ;
-		}else if(email2 == null || email2.equals("")){
-			email = emailID + "@" + emailDM ;
-		}
-		else{
-			email = emailID + "@" + email2;
+		if (emailID == null || emailID.equals("")) {
+			email = "";
+		} else {
+			if (email2 == null || email2.equals("")) {
+				email = emailID + "@" + emailDM;
+			}else if (emailDM == null || emailDM.equals("")) {
+				email = emailID + "@" + email2;
+			}
 		}
 						
 		String phone = phone1 + phone2 + phone3;		

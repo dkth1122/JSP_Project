@@ -385,7 +385,7 @@ function signup() {
 		    return;
 		  }
 
-		  if (id === "") {
+		if (id === "") {
 		    showErrorMsg('uId-error', '아이디를 입력해주세요');
 		    return;
 		  }

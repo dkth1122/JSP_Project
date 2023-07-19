@@ -6,10 +6,34 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-   body{
-      background-color: #023047;
-   }
+   @font-face {
+        font-family: "a타이틀고딕2";
+        src: url("./img/A타이틀고딕2.TTF") format("truetype");
+    }
 
+	*{
+		color:rgb(255, 99, 146);
+		font-family: a타이틀고딕2;
+		font-size: 32px;
+	}
+
+	body {
+		margin: 0px 0px;
+		background-color: #fdfdd3;
+	}
+	
+	.btn_input {
+		width: 200px;
+	  	height: 40px;
+		font-size: 24px;
+		font-family: a타이틀고딕2;
+		color:rgb(255, 99, 146);
+		border-radius: 30px;
+		border:1px solid pink;
+		background-color: white;
+		cursor: pointer;
+		margin: 24px 75px;
+	}
 </style>
 </head>
 <body>
@@ -45,16 +69,16 @@
         pstmt.setString(5, cont);
         pstmt.setString(6, "O");
         pstmt.executeUpdate();
-        out.println("문의 등록되었습니다.");
+        out.println("<div style='margin:24px 32px; background-color:white; width: 300px; border:1px solid pink; text-align:center;'> 문의 등록 완료 </div>");
         %>
-        <div><input type="button" onclick="isback()" value="돌아가기"></div>
+        <div><input class="btn_input" type="button" onclick="isback()" value="돌아가기"></div>
         <%
         pstmt.close();
         pstmt2.close();
         rs.close();
     } catch(SQLException e) {
     	out.println(e.getMessage());
-        out.println("문제가 발생했습니다. 관리자에게 문의하세요.");
+        out.println("<div style='margin:24px 32px; background-color:white; width: 300px; border:1px solid pink; text-align:center;'>문제가 발생했습니다. 관리자에게 문의하세요.</div>");
         e.printStackTrace();
         %>
         <div><input type="button" onclick="isback()" value="돌아가기"></div>
@@ -64,7 +88,6 @@
 
 </body>
 <script>
-
    function isback() {
     location.href = "u_QnA.jsp"
       }

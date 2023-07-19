@@ -38,7 +38,7 @@
     
     .t-in > a{
         display: block;
-        margin: 7px 10px;
+        margin: 10px 10px;
         height: 20px;
         float: left;
     }

@@ -5,34 +5,68 @@
 <head>
     <meta charset="UTF-8">
     <title>회원 멤버십 확인</title>
-    <style>
-    *{
-        font-family: a타이틀고딕2;
-    }
-    body {
-        text-align: center;
-        font-size: 24px;
-    }
-    th {
-        background-color: pink;
-    }
-    table{
-        border-collapse: collapse;
-    }
-    td, th {
-        border: 1px solid black;
-        padding: 0px 12px;
-    }
-    .btn{
-        width: 50px;
-        margin: 10px auto;
+<style>
+	@font-face {
+        font-family: "삼립호빵";
+        src: url("./img/SDSamliphopangcheTTFOutline.ttf") format("truetype");
     }
     
+    @font-face {
+        font-family: "a타이틀고딕2";
+        src: url("./img/A타이틀고딕2.TTF") format("truetype");
+    }
+	*{
+		font-family: a타이틀고딕2;
+	}
+	body {
+		background-color:#e8ffef;
+		text-align: center;
+		font-size: 16px;
+		color: #ggg;
+	}
+	th {
+		background-color: #fdfdd3;
+		color: rgb(255, 99, 146);
+	}
+	table{
+		border-collapse: collapse;
+		margin: 10px auto;
+	}
+	td, th {
+		border: 1px solid pink;
+		padding: 3px;
+	}
+	.btn{
+		width: 50px;
+		margin: 10px auto;
+	}
+	td{
+		background-color: white;
+	}
+	.btn_input{
+		width: 100px;
+		height: 24px;
+		font-size: 15px;
+		font-family: a타이틀고딕2;
+		color:rgb(255, 99, 146);
+		border-radius: 30px;
+		border:1px solid pink;
+		background-color: #fdfdd3;
+		cursor: pointer;
+		}
+	input{
+		margin: 5px;
+		border: 1px solid pink;
+		color: rgb(255, 99, 146);
+	}
+	input:focus { 
+		outline: none !important; border-bottom-color: pink; box-shadow: 0 0 10px #d6a8e9; 
+	}
 </style>
 </head>
 <body>
     <%@ include file="jdbc_set.jsp" %>
-    <h1>회원 멤버십 확인</h1>    
+    <h1 style="color: rgb(255, 99, 146)">회원 멤버십 확인</h1>    
     <form name = "list">
 
     <!-- 입력받은 회원 ID로 조회한 결과가 있을 경우에만 테이블 생성 -->
@@ -103,10 +137,10 @@
             out.println("<p>회원 ID를 입력해주세요.</p>");
         }
     %>
-    <input type="button" onclick="mUpdate()" value="수정"/>
-	<input type="button" onclick="mRemove()" value="삭제"/>
+    <input class="btn_input" type="button" onclick="mUpdate()" value="수정"/>
+	<input class="btn_input"  type="button" onclick="mRemove()" value="삭제"/>
+    <input class="btn_input"  type="button" onclick="isback()" value="돌아가기"/>
     </form>
-    <input type="button" onclick="isback()" value="돌아가기"/>
 </body>
 </html>
 <script>
