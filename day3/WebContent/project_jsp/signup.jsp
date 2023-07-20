@@ -30,7 +30,7 @@
   	font-size: 50px;
   	margin: 30px auto;
   	width: 540px ;
-  	color: pink;
+  	color: rgb(255, 99, 146);
   	background: white;
   }
   
@@ -98,7 +98,7 @@
 	  	height: 36px;
 		font-size: 15px;
 		font-family: a타이틀고딕2;
-		color:pink;
+		color:rgb(255, 99, 146);
 		border-radius: 30px;
 		border:1px solid pink;
 		background-color: #fdfdd3;
@@ -110,7 +110,7 @@
 	  	height: 30px;
 		font-size: 12px;
 		font-family: a타이틀고딕2;
-		color:pink;
+		color:rgb(255, 99, 146);
 		border-radius: 30px;
 		border:1px solid pink;
 		background-color: #fdfdd3;
