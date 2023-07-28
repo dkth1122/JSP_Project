@@ -259,12 +259,15 @@
 	}
 
 	var form = document.list;
+	
 	function userRemove(){
 		if(!confirm("정말 삭제하시겠습니까?")){
 			return;
 		}
 		   var form = document.list;
-		   window.open("a_user_remove.jsp?uId=" + form.user.value,"rpop","width=500, height=300")
+		   var left = (screen.width - 325) / 2;
+		   var top = (screen.height - 280) / 2;
+		   window.open("a_user_remove.jsp?uId=" + form.user.value,"rpop","width=500, height=300, top=" + top + ", left=" + left);
 	}//userRemove
 	
 	function bchange(kind,uId){
@@ -273,15 +276,19 @@
 				}else {
 					kind = "N"
 				}
-				window.open("a_user_ban.jsp?uId="+uId+"&kind="+kind,"bpop","width=500, height=300");	
+				var left = (screen.width - 325) / 2;
+				var top = (screen.height - 280) / 2;
+				window.open("a_user_ban.jsp?uId="+uId+"&kind="+kind,"bpop","width=500, height=300, top=" + top + ", left=" + left);
 			}
 			
 	function getReturn(){
 				location.reload(); //새로고침
 			}		
-			
+
 	function cnt(uId){
-		window.open("a_cnt_reset.jsp?uId="+uId,"cpop","width=500, height=300");	
+		var left = (screen.width - 325) / 2;
+		var top = (screen.height - 280) / 2;
+		window.open("a_cnt_reset.jsp?uId="+uId,"cpop","width=500, height=300,  top=" + top + ", left=" + left);	
 	}		
 	
 	function userUpdate(){
@@ -289,19 +296,9 @@
 		      return;
 		   }
 		   var form = document.list;
-		   window.open("a_user_update.jsp?uId=" + form.user.value,"upop","width=500, height=300");
+		   var left = (screen.width - 325) / 2;
+		   var top = (screen.height - 280) / 2;
+		   window.open("a_user_update.jsp?uId=" + form.user.value,"upop","width=400, height=400, top=" + top + ", left=" + left);
 		}
-
-	function bchange(kind,uId){
-		if(kind == "N"){
-			kind ="Y";
-		}else {
-			kind = "N"
-		}
-		window.open("a_user_ban.jsp?uId="+uId+"&kind="+kind,"bpop","width=500, height=300");	
-	}
 	
-	function cnt(uId){
-		window.open("a_cnt_reset.jsp?uId="+uId,"cpop","width=500, height=300");	
-	}		
 </script>

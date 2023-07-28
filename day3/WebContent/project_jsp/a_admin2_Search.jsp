@@ -8,28 +8,63 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-    *{
-        font-family: a타이틀고딕2;
-    }
-    body {
-        text-align: center;
-        font-size: 24px;
-    }
-    th {
-        background-color: pink;
-    }
-    table{
-        border-collapse: collapse;
-    }
-    td, th {
-        border: 1px solid black;
-        padding: 0px 12px;
-    }
-    .btn{
-        width: 50px;
-        margin: 10px auto;
+	@font-face {
+        font-family: "삼립호빵";
+        src: url("./img/SDSamliphopangcheTTFOutline.ttf") format("truetype");
     }
     
+    @font-face {
+        font-family: "a타이틀고딕2";
+        src: url("./img/A타이틀고딕2.TTF") format("truetype");
+    }
+	*{
+		font-family: a타이틀고딕2;
+	}
+	body {
+		background-color:#e8ffef;
+		text-align: center;
+		font-size: 16px;
+		color: #ggg;
+	}
+	th {
+		background-color: #fdfdd3;
+		color: rgb(255, 99, 146);
+	}
+	table{
+		border-collapse: collapse;
+		margin: 10px auto;
+	}
+	td, th {
+		border: 1px solid pink;
+		padding: 3px;
+	}
+	.btn{
+		width: 50px;
+		margin: 10px auto;
+	}
+	td{
+		background-color: white;
+	}
+	.btn_input{
+		width: 100px;
+		height: 24px;
+		font-size: 15px;
+		font-family: a타이틀고딕2;
+		color:rgb(255, 99, 146);
+		border-radius: 30px;
+		border:1px solid pink;
+		background-color: #fdfdd3;
+		cursor: pointer;
+		}
+	input{
+		margin: 5px;
+		border: 1px solid pink;
+		color: rgb(255, 99, 146);
+		background-color: #fdfdd3;
+	}
+	input:focus { 
+		outline: none !important; border-bottom-color: pink; box-shadow: 0 0 10px #d6a8e9; 
+	}
 </style>
 </head>
 <body>
@@ -94,7 +129,7 @@
             <td><%=qna_d%></td>
             <td><%=qna_t%></td>
             <td style="color:<%= qstyle %>"><%=qnaa2%></td>
-            <td><input type="button" value="<%= aChe %>" onclick="qq_a(<%=qna%>)"></td>
+            <td><input style="color: rgb(255, 99, 146)" type="button" value="<%= aChe %>" onclick="qq_a(<%=qna%>)"></td>
         </tr>
 <% 
                     }// end while
@@ -113,7 +148,7 @@
             document.getElementById("qnaTable").style.display = "none";
         }
     </script>
-    <input type="button" onclick="isback()" value="돌아가기"/>
+    <input class="btn_input" type="button" onclick="isback()" value="돌아가기"/>
 </form>
 </body>
 </html>
@@ -129,6 +164,6 @@
     }        
     
     function qq_a(qNo) {
-        window.open("a_QnA_Answer.jsp?qNo=" + qNo,"popup1", "width=500, height=500");
+        window.open("a_QnA_Answer.jsp?qNo=" + qNo,"popup1", "width=700, height=500");
     }
 </script>

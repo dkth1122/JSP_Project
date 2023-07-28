@@ -76,6 +76,7 @@
 		<input class="btn_input" type="button" onclick="searchUser()" value="검색">
 	</form>
 
+	<div style="font-size: 10px">OPEN : 답변 대기  / PENDING  : 담당자 확인 중 / CLOSE : 답변 완료 </div>
 	<form name="list">
 		<table>
 			<tr>
@@ -151,7 +152,7 @@
 
 	function qq_a(qNo, uId) {
 		window.open("a_QnA_Answer.jsp?qNo=" + qNo + "&uId=" + uId, "popup1",
-				"width=500, height=500");
+				"width=700, height=500");
 	}
 
 	function searchUser() {

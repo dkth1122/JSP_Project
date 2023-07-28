@@ -5,10 +5,37 @@
 <meta charset="UTF-8">
 <title>문의 내용</title>
 <style>
-   body{
-      background-color: #9dc1d8;
-   }
-
+	@font-face {
+        font-family: "삼립호빵";
+        src: url("./img/SDSamliphopangcheTTFOutline.ttf") format("truetype");
+    }
+    
+    @font-face {
+        font-family: "a타이틀고딕2";
+        src: url("./img/A타이틀고딕2.TTF") format("truetype");
+    }
+	*{
+		font-family: a타이틀고딕2;
+	}
+	body {
+		background-color:#e8ffef;
+		text-align: center;
+		font-size: 16px;
+		color: rgb(255, 99, 146);
+		margin: 80px auto;
+	}
+	.btn_input{
+		width: 100px;
+		height: 24px;
+		font-size: 15px;
+		font-family: a타이틀고딕2;
+		color:rgb(255, 99, 146);
+		border-radius: 30px;
+		border:1px solid pink;
+		background-color: #fdfdd3;
+		cursor: pointer;
+		margin: 32px;
+	}
 </style>
 </head>
 <body>
@@ -32,9 +59,9 @@
        int result = stmt.executeUpdate(sql);
        
        if (result == 1) {
-           out.println("업데이트완료되었습니다.");
+           out.println("업데이트 완료");
            %>
-           <div><input type="button" onclick="back()" value="닫기"></div>
+           <div><input class="btn_input" type="button" onclick="back()" value="닫기"></div>
            <%
        }
    } catch (SQLException e) {

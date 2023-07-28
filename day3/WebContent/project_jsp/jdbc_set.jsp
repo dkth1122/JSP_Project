@@ -11,9 +11,9 @@
 	<%
 	Connection conn;
 	Class.forName("com.mysql.jdbc.Driver"); 
-	String db_url = "jdbc:mysql://db-hedhk.pub-cdb.ntruss.com/tj-db1?verifyServerCertificate=false&useSSL=false&requireSSL=false";
-	String db_id = "tj_test2";
-	String db_pw = "test12#$";
+	String db_url = "jdbc:mysql://localhost/semi";
+	String db_id = "root";
+	String db_pw = "test123";
 	conn = DriverManager.getConnection(db_url, db_id, db_pw);
 
 	%>

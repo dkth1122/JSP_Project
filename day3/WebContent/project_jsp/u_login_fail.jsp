@@ -54,7 +54,7 @@
     	display: block;
 		position: absolute;
 		top : 48%;
-        left: 30%;
+        left: 37%;
         text-decoration: none;
         color: rgb(255, 99, 146);
     }
@@ -86,7 +86,7 @@
         <div id="container">
             <div class="c_1">
                     <img src ="img/pngwing.com (1).png">
-                    <a>틀렷어.</a>
+                    <a>실패</a>
             </div>
             <img id="gam" onclick="isback()" src = "img/image-removebg-preview.png">
             	<fieldset>

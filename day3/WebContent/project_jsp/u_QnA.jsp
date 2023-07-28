@@ -100,7 +100,7 @@
 		border-color: pink;
 	}
 		
-    </style>
+</style>
 </head>
 <body>
    
@@ -111,7 +111,7 @@
    <fieldset>
    <form action="u_QnA_Upload.jsp" name="check">
       <div class="q-1">제목 : <input class="in2" type="text" name="tit"></div>
-      <div class="q-1">내용 : <input class="in1" type="text" name="cont" ></div>
+      <div>내용</div> <textarea class="in1" cols="30" rows="5"  name="cont" maxlength="300"> </textarea>
       <div><input class="btn_input" onclick="btn()" type="button" value="제출하기"></div>
       <div><input class="btn_input" onclick="isback()" type="button" value="돌아가기"></div>
    </form>

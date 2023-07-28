@@ -83,7 +83,7 @@
   <div id="container">
             <div class="c_1">
                     <img src ="img/pngwing.com (1).png">
-                    <a>가입 추카★</a>
+                    <a>가입 축하★</a>
             </div>
             <img id="gam" onclick="isback()" src = "img/image-removebg-preview.png">
             	<fieldset>
