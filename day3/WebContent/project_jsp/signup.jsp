@@ -32,6 +32,7 @@
   	width: 540px ;
   	color: rgb(255, 99, 146);
   	background: white;
+  	text-align: center;
   }
   
   #container {
@@ -51,6 +52,7 @@
   fieldset {
   	width: 500px;
     height: 600px;
+    margin: 0px auto;
     margin-bottom: 20px;
     background-color: white;
     border: 3px dashed rgb(253, 167, 167);
@@ -105,7 +107,7 @@
 		margin: 30px 10px;
 	}
 	
-	 	.btn_input2 {
+	 .btn_input2 {
 		width: 60px;
 	  	height: 30px;
 		font-size: 12px;
