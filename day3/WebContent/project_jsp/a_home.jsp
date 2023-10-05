@@ -32,7 +32,7 @@
 	.c_1{
 		position: absolute;
         top : 3%;
-        left: 38%;
+        left: 50%;
 	}
 	
 	fieldset {
