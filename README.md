@@ -38,4 +38,3 @@
   <li>1:1 문의 관리</li>
 </ul>
 <br>
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=FF8C42&height=200&section=footer)
