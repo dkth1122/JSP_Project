@@ -1,6 +1,5 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=ffd400&height=200&section=header&text=&fontSize=50&fontColor=fff" />
-<br>
-<br>
+
 
 ![다운로드](https://github.com/dkth1122/project_jsp/assets/134511884/2f9f6728-18e3-4fc9-adfe-26da7647547a)
 
