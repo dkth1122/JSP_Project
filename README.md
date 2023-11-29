@@ -1,4 +1,4 @@
-
+<img src="https://capsule-render.vercel.app/api?type=waving&color=ffd400&height=200&section=header&text=&fontSize=50&fontColor=fff" />
 ![다운로드](https://github.com/dkth1122/project_jsp/assets/134511884/2f9f6728-18e3-4fc9-adfe-26da7647547a)
 <h2>🔎 프로젝트 정보</h2>
 <div><b>📆 2023.07.11 ~ 2023.07.17 (7일)</b></div>
@@ -71,3 +71,4 @@
   <br>
 </ul>
 <br>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=ffd400&height=200&section=footer&text=&fontSize=50&fontColor=fff" />
