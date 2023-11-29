@@ -47,6 +47,8 @@
 | SIGNUP_D | datetime          |    | X    | 가입일자         |                            |                        |
 | UPDATE   | datetime          |    | O    | 수정일자         |                            | 이거 깃 리드미에 표로 넣게 바꿔줘 |
 
+<br>
+<br>
 <h2>⚙ 기능 구현</h2>
 <ul>
   <li>로그인 기능</li>
